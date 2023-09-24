@@ -1,2 +1,2 @@
 # Loon Rules
-May not be deleted soon
+May be deleted soon
