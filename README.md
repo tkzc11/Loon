@@ -1,2 +1,2 @@
 # Loon Rules
-May be deleted soon
+All documents from RuCu6
