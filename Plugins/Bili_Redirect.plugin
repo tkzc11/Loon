@@ -1,16 +1,10 @@
-# BiliBili Redirect
-# Author: ChatGPT
-# Date: 2025-10-03
-
-[Module]
-name = BiliBili Redirect
-desc = Redirect CDN to increase speed
+#!name = BiliBili Redirect
+#!desc = Redirect CDN to increase speed
+#!date = 2025-10-03
 
 [Rewrite]
-# 匹配所有 upos-sz-mirror* 并保留原路径与参数
 ^https?:\/\/upos-sz-mirror[^\.]*\.bilivideo\.com\/(.*) https://cn-hk-eq-01-12.bilivideo.com/$1 302
-# 单独匹配 Akamai 的 upos-hz-mirrorakam.akamaized.net
 ^https?:\/\/upos-hz-mirrorakam\.akamaized\.net\/(.*) https://cn-hk-eq-01-12.bilivideo.com/$1 302
 
-[Mitm]
-hostname = %APPEND% upos-sz-mirror*.bilivideo.com, upos-hz-mirrorakam.akamaized.net
+[MITM]
+hostname = upos-sz-mirror*.bilivideo.com, upos-hz-mirrorakam.akamaized.net
