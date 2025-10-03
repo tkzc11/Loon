@@ -3,7 +3,7 @@
 #!date = 2025-10-04
 
 [Rewrite]
-^https?:\/\/d1--ov-gotcha*\.bilivideo\.com\/(.*) https://cn-hk-eq-01-12.bilivideo.com/$1 302
+^https?:\/\/d1--ov-gotcha[^\.]*\.bilivideo\.com\/(.*) https://cn-hk-eq-01-12.bilivideo.com/$1 302
 
 [MITM]
 hostname = d1--ov-gotcha*.bilivideo.com
