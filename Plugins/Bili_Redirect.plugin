@@ -1,0 +1,16 @@
+#!name = BiliBili Redirect
+#!desc = Redirect CDN to increase speed
+#!date = 2025-10-03
+
+[Rule]
+URL-REGEX,"^http:\/\/203\.119\.206\.8\/\d+\/resolve",REJECT
+
+[Argument]
+target = input,"cn-hk-eq-01-12.bilivideo.com",tag=[目标链接],desc=需要替换的CDN
+
+[Rewrite]
+^https?:\/\/upos-sz-mirror[^\.]*\.bilivideo\.com\/(.*) https://{target}/$1 302
+^https?:\/\/upos-hz-mirrorakam\.akamaized\.net\/(.*) https://{target}/$1 302
+
+[MITM]
+hostname = 203.119.206.8, upos-sz-mirror*.bilivideo.com, upos-hz-mirrorakam.akamaized.net
