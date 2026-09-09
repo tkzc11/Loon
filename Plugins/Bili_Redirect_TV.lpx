@@ -15,4 +15,4 @@ http-request ^https?:\/\/(?:(?:[A-Za-z0-9-]+\.)*(?:bilivideo|acgvideo)\.com|(?:[
 http-request ^https?:\/\/upos-(?:hz|bstar1)-mirrorakam\.akamaized\.net(?::[0-9]+)?\/upgcxcode\/ script-path=https://raw.githubusercontent.com/vulpsecula/BiliBili-CDN-Loon/main/custom/BiliBili.Redirect.CCBStyle.request.js, tag=📺 BiliBili.Redirect.CCBStyle.akamaized, timeout=30, argument=[{CDN}]
 
 [MITM]
-hostname = 203.119.206.8, *.mcdn.bilivideo.cn, upos-sz-mirror*.bilivideo.com, upos-*-mirrorakam.akamaized.net
+hostname = 203.119.206.8, api.biliapi.net, *.bilivideo.com, *.bilivideo.cn, *.acgvideo.com, upos-*-mirrorakam.akamaized.net
