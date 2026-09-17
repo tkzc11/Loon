@@ -1,0 +1,18 @@
+#!name = BiliBili Redirect for TV
+#!desc = Bilibili CDN自定义
+#!author = VirgilClyne, tkzc11
+#!date = 2026-09-09
+
+[Rule]
+URL-REGEX,"^http:\/\/203\.119\.206\.8\/\d+\/resolve",REJECT
+
+[Argument]
+CDN = select,"upos-sz-estgcos.bilivideo.com",tag=目标 CDN 节点,desc=手动选择CDN
+
+[Script]
+http-response ^https?:\/\/api\.(?:bilibili\.com|biliapi\.net)\/(?:x\/player\/(?:(?:wbi\/)?playurl|wbi\/v2)|pgc\/player\/(?:api|web)(?:\/v\d+)?\/playurl(?:\/html5)?|pugv\/player\/web\/playurl)(?:\?|$) script-path=https://raw.githubusercontent.com/vulpsecula/BiliBili-CDN-Loon/main/custom/BiliBili.Redirect.CCBStyle.response.js, requires-body=true, tag=📺 BiliBili.Redirect.CCBStyle.playurl, timeout=30, argument=[{CDN}]
+http-request ^https?:\/\/(?:(?:[A-Za-z0-9-]+\.)*(?:bilivideo|acgvideo)\.com|(?:[A-Za-z0-9-]+\.)*bilivideo\.cn)(?::[0-9]+)?\/upgcxcode\/ script-path=https://raw.githubusercontent.com/vulpsecula/BiliBili-CDN-Loon/main/custom/BiliBili.Redirect.CCBStyle.request.js, tag=📺 BiliBili.Redirect.CCBStyle.upgcxcode, timeout=30, argument=[{CDN}]
+http-request ^https?:\/\/upos-(?:hz|bstar1)-mirrorakam\.akamaized\.net(?::[0-9]+)?\/upgcxcode\/ script-path=https://raw.githubusercontent.com/vulpsecula/BiliBili-CDN-Loon/main/custom/BiliBili.Redirect.CCBStyle.request.js, tag=📺 BiliBili.Redirect.CCBStyle.akamaized, timeout=30, argument=[{CDN}]
+
+[MITM]
+hostname = 203.119.206.8, api.biliapi.net, *.bilivideo.com, *.bilivideo.cn, *.acgvideo.com, upos-*-mirrorakam.akamaized.net
